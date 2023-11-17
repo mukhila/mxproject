@@ -1,15 +1,22 @@
 .toast-title {
   font-weight: bold;
 }
+.toast
+{
+  background-color: #808080!important;
+  color:#000!important;
+}
+}
 
 .toast-message {
   -ms-word-wrap: break-word;
   word-wrap: break-word;
+  
 }
 
 .toast-message a,
 .toast-message label {
-  color: #ffffff;
+  color: #000; 
 }
 
 .toast-message a:hover {
@@ -330,8 +337,8 @@ button.toast-close-button {
 .light-style #toast-container .toast-error,
 .light-style #toast-container .toast-info,
 .light-style #toast-container .toast-warning {
-  color: #636578;
-  background-color: #fff;
+  color: #fff;
+  background-color: #808080;
 }
 
 .dark-style #toast-container {
