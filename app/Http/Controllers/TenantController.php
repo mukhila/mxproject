@@ -17,9 +17,15 @@ class TenantController extends Controller
     }
     public function list()
     {
-        $tenant = User::where('role', '=', 'Tenant')->orderBy('id', 'desc')->get();
+       /* $tenant = User::where('role', '=', 'Tenant')->orderBy('id', 'desc')->get();*/
+
+
+        $tenant = User::where('role', '=', 'Tenant')->whereNotIn('id', function($query) {
+                $query->select('user_id')->from('tenantusers')->where('delete_status','0');
+            })->get();
+
         return view('usertenant.index')->with([
-            'tenant' => $tenant
+           'tenant' => $tenant
         ]);
 
     }
