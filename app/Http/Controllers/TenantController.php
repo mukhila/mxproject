@@ -13,7 +13,10 @@ class TenantController extends Controller
 {
     public function dashboard()
     {
-        return view('tenant.dashboard');
+        $tenant = Tenant::where('userid',Auth::user()->id)->first();
+        return view('tenant.dashboard')->with([
+           'tenant' => $tenant
+        ]);;
     }
     public function list()
     {
@@ -120,7 +123,7 @@ class TenantController extends Controller
 
     public function updatestatus($id) {
         $tenant = User::where('id', '=', $id)->select('status')->first();
-      
+
         $status = $tenant->status;
         $tenantstatus = 'Active';
         if($status == 'Active') {

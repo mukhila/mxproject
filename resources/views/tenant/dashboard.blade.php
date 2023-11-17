@@ -5,7 +5,7 @@
         <div class="col-xl-4">
             <div class="card h-100">
                 <div class="card-body text-nowrap">
-                    <h4 class="card-title mb-1 d-flex gap-2 flex-wrap">Congratulations Tenant 🎉
+                    <h4 class="card-title mb-1 d-flex gap-2 flex-wrap">Congratulations {{ $tenant->company_name }} 🎉
                     </h4>
                     <p class="pb-0">Best seller of the month</p>
                     <h4 class="text-primary mb-1">$42.8k</h4>
