@@ -35,8 +35,10 @@ class BranchController extends Controller
             'emailid' => 'required',
             'mobileno' => 'required',                           
         ]);
+        $tenant = Tenant::where('userid',Auth::user()->id)->first();
+        $tenant_id = $tenant->id;
         $branch = new Branch;
-        $branch->tenant_id = $request->tenant_id; 
+        $branch->tenant_id = $tenant_id; 
         $branch->address = $request->address;
         $branch->branchname = $request->branchname;
         $branch->contactno = $request->contactno;
@@ -69,9 +71,11 @@ class BranchController extends Controller
             'emailid' => 'required',
             'mobileno' => 'required',                        
         ]);
-         
+        
+        $tenant = Tenant::where('userid',Auth::user()->id)->first();
+        $tenant_id = $tenant->id;
         $branch = Branch::find($id);
-        $branch->tenant_id = $request->tenant_id; 
+        $branch->tenant_id = $tenant_id; 
         $branch->address = $request->address;
         $branch->branchname = $request->branchname;
         $branch->contactno = $request->contactno;
