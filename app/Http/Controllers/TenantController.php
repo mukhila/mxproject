@@ -20,7 +20,7 @@ class TenantController extends Controller
        /* $tenant = User::where('role', '=', 'Tenant')->orderBy('id', 'desc')->get();*/
 
 
-        $tenant = User::where('role', '=', 'Tenant')->whereNotIn('id', function($query) {
+        $tenant = User::where('role', '=', 'Tenant')->where('delete_status','0')->whereNotIn('id', function($query) {
                 $query->select('user_id')->from('tenantusers')->where('delete_status','0');
             })->get();
 
@@ -120,12 +120,13 @@ class TenantController extends Controller
 
     public function updatestatus($id) {
         $tenant = User::where('id', '=', $id)->select('status')->first();
+      
         $status = $tenant->status;
         $tenantstatus = 'Active';
         if($status == 'Active') {
             $tenantstatus = 'Inactive';
         }
-        Tenant::where('id', '=', $id)->update(['status' => $tenantstatus]);
+        User::where('id', '=', $id)->update(['status' => $tenantstatus]);
         Toastr::success('Tenant status successfully Updated');    
         return redirect('admin/tenant/list')->with('success', 'Tenant status successfully updated');
     }
