@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('tenant', function (Blueprint $table) {
             $table->id();
+            $table->integer('userid');
             $table->string('company_name',250)->unique();
             $table->enum('status',['Active', 'Inactive'])->default('Active');
             $table->tinyInteger('delete_status')->default('0'); 
