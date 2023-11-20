@@ -1,4 +1,4 @@
-@extends('layouts.app-tenant')
+@extends('layouts.app-admin')
 @section('content')
 
 <!-- Content -->
@@ -33,7 +33,7 @@
                                     <h5 class="me-2">Edit Company</h5>
 
                                       <div class="card-header-elements ms-auto">
-                                        <a href = "{{ url('tenant.list') }}" class="btn btn-primary waves-effect waves-light">
+                                        <a href = "{{ route('admin.tenant.list') }}" class="btn btn-primary waves-effect waves-light">
                                           <span class="tf-icon mdi mdi-eye me-1"></span>Company List
                                         </a>
                                       </div>
