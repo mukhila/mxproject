@@ -5,10 +5,15 @@
         <div class="col-xl-6">
             <div class="card h-100">
                 <div class="card-body text-nowrap">
-                    <h4 class="card-title mb-1 d-flex gap-2 flex-wrap">Congratulations {{ auth()->user()->name }} 🎉
-                    </h4>
-                    <hr class="m-1">
-                    <h5>Welcome {{ $tenant->company_name }} 🚀 </h5>                    
+                     <h4 class="card-title mb-4">Welcome {{ $tenant->company_name }} 🚀 </h4> 
+                     <hr class="m-1">
+                    <h5 class="d-flex gap-2 flex-wrap mb-4 mt-4">{{ auth()->user()->name }} 🎉
+
+                    <br><br>View Your report
+
+                    </h5>
+                
+                                      
                     
                     <a href="javascript:;" class="btn btn-sm btn-primary">View Sales</a>
                 </div>
