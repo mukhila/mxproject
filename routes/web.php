@@ -122,3 +122,14 @@ Route::group([ 'prefix' => 'denomination' ], function () {
         Route::get('/{id}/destroy', 'App\Http\Controllers\Admin\UserController@destroy');
     });
 
+
+      Route::group([ 'prefix' => 'companyusers' ], function () {
+        Route::get('/dashboard', 'App\Http\Controllers\CompanyUsers\CompanyUserController@dashboard')->name('companyusers.list');
+
+    Route::get('/profile', 'App\Http\Controllers\CompanyUsers\CompanyUserController@profile')->name('companyusers.profile');
+    Route::get('/profile/{id}/edit', 'App\Http\Controllers\CompanyUsers\CompanyUserController@profileedit')->name('companyusers.profile.edit');
+    Route::post('/profile/update', 'App\Http\Controllers\CompanyUsers\CompanyUserController@profileupdate')->name('companyusers.profile.update');
+      
+    });
+
+

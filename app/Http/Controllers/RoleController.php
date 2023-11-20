@@ -24,13 +24,15 @@ class RoleController extends Controller
             if(isset($tenant))
             {
                 Session::put('tenant_id', $tenant->id);
+                return redirect('tenant/dashboard');
             }
             else
             {
-                $tenant = TenantUsers::where('user_id',Auth::user()->id)->first();
+               $tenant = TenantUsers::where('user_id',Auth::user()->id)->first();
                Session::put('tenant_id', $tenant->tenant_id);
+               return redirect('companyusers/dashboard');
             }
-            return redirect('tenant/dashboard');
+            
         }
         return redirect(route('login'));
     }
