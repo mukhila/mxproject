@@ -81,8 +81,7 @@
                               name="role"
                               class="form-select"
                               data-allow-clear="true" required>
-                              <option value="">Select role</option>  
-                              <option value="Tenant Admin">Tenant Admin</option>  
+                              <option value="">Select role</option>                                
                               <option value="Branch Admin">Branch Admin</option>
                               <option value="Cashier">Cashier</option>
                                                  

@@ -91,8 +91,7 @@
                               name="role"
                               class="form-select"
                               data-allow-clear="true" required>
-                              <option value="">Select role</option>  
-                              <option value="Tenant Admin" {{ $tenantuser->role == "Tenant Admin" ? 'Selected' :'' }}>Tenant Admin</option>  
+                              <option value="">Select role</option>                               
                               <option value="Branch Admin" {{ $tenantuser->role == "Branch Admin" ? 'Selected' :'' }}>Branch Admin</option>
                               <option value="Cashier" {{ $tenantuser->role == "Cashier" ? 'Selected' :'' }} >Cashier</option>
                                                  

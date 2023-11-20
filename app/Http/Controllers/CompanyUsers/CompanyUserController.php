@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Tenant;
 use App\Models\User;
+use App\Models\TenantUsers;
 use Session;
 use Auth;
 use Hash;
@@ -16,9 +17,11 @@ class CompanyUserController extends Controller
     public function dashboard()
     {
         $tenant_id = Session::get('tenant_id');
-         $tenant = Tenant::where('id',$tenant_id)->first();
+        $tenant = Tenant::where('id',$tenant_id)->first();
+        $tenantuser = TenantUsers::where('user_id',Auth::user()->id)->first();
         return view('companyusers.dashboard')->with([
-           'tenant' => $tenant
+           'tenant' => $tenant,
+           'tenantuser'=>$tenantuser
         ]);
 
     }
@@ -27,9 +30,11 @@ class CompanyUserController extends Controller
         $users = User::where('id', '=', Auth::user()->id)->first();
         $tenant_id = Session::get('tenant_id');
         $tenant = Tenant::where('id',$tenant_id)->first();
+        $tenantuser = TenantUsers::where('user_id',Auth::user()->id)->first();
         return view('companyusers.profile')->with([
             'users' => $users,
-            'tenant' =>$tenant
+            'tenant' =>$tenant,
+            'tenantuser'=>$tenantuser
         ]);
     }
     public function profileedit($id)

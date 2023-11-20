@@ -7,7 +7,7 @@
                 <div class="card-body text-nowrap">
                      <h4 class="card-title mb-4">Welcome {{ $tenant->company_name }} 🚀 </h4> 
                      <hr class="m-1">
-                    <h5 class="d-flex gap-2 flex-wrap mb-4 mt-4">{{ auth()->user()->name }} 🎉
+                    <h5 class="d-flex gap-2 flex-wrap mb-4 mt-4">{{ auth()->user()->name }} 🎉 - {{ $tenantuser->role }}
 
                     <br><br>View Your report
 

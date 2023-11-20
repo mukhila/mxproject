@@ -51,7 +51,7 @@
                         </li>
                         <li class="d-flex align-items-center mb-3">
                             <i class="mdi mdi-badge-account mdi-24px"></i><span class="fw-medium mx-2">Role:</span>
-                            <span>{{ $users->role }}</span>
+                            <span>{{ $tenantuser->role }}</span>
                         </li>
                         <li class="d-flex align-items-center mb-3">
                             <i class="mdi mdi-clipboard-text-clock-outline mdi-24px"></i><span class="fw-medium mx-2">DOB:</span>
