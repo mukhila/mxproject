@@ -10,6 +10,7 @@ use App\Models\Branch;
 use App\Models\TenantUsers;
 use Auth;
 use Hash;
+use Session;
 
 
 class TenantUsersContoller extends Controller
@@ -17,7 +18,8 @@ class TenantUsersContoller extends Controller
     public function list()
     {
         $user = User::where('role', '=', 'Tenant')->orderBy('id', 'desc')->get();
-        $tenantusers = TenantUsers::where('delete_status',0)->paginate(10);
+        $tenant = Tenant::where('userid',Auth::user()->id)->first();
+        $tenantusers = TenantUsers::where('tenant_id',$tenant->id)->get();
         return view('tenantuser.index')->with([
             'tenantusers' => $tenantusers,
             'user' => $user,

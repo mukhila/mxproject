@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\User;
 use App\Models\Tenant;
+use Session;
 use Auth;
 use Hash;
 
@@ -13,10 +14,13 @@ class TenantController extends Controller
 {
     public function dashboard()
     {
-        $tenant = Tenant::where('userid',Auth::user()->id)->first();
+        $tenant_id =  Session::get('tenant_id');
+        $user = User::where('id', Auth::user()->id)->first();
+        $tenant = Tenant::where('userid',$tenant_id)->first();
         return view('tenant.dashboard')->with([
-           'tenant' => $tenant
-        ]);;
+           'tenant' => $tenant,
+           'user' => $user
+        ]);
     }
     public function list()
     {

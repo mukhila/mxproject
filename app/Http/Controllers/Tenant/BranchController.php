@@ -8,6 +8,7 @@ use App\Models\Tenant;
 use App\Models\Branch;
 use Auth;
 use Hash;
+use Session;
 
 
 class BranchController extends Controller
@@ -72,10 +73,10 @@ class BranchController extends Controller
             'mobileno' => 'required',                        
         ]);
         
-        $tenant = Tenant::where('userid',Auth::user()->id)->first();
-        $tenant_id = $tenant->id;
+        //$tenant = Tenant::where('userid',Auth::user()->id)->first();
+        //$tenant_id = $tenant->id;
         $branch = Branch::find($id);
-        $branch->tenant_id = $tenant_id; 
+        //$branch->tenant_id = $tenant_id; 
         $branch->address = $request->address;
         $branch->branchname = $request->branchname;
         $branch->contactno = $request->contactno;
