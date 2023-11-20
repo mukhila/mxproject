@@ -65,7 +65,7 @@
                 <!-- Dashboard -->
                 <li
                     class="menu-item {{ (request()->segment(2) == 'dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('admin.dashboard') }}" class="menu-link">
+                    <a href="{{ route('tenant.dashboard') }}" class="menu-link">
                         <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
                         <div data-i18n="Dashboard">Dashboard</div>
                     </a>

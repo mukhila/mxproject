@@ -59,8 +59,8 @@
                                 <td> {{ $ten->user->email }} </td>
                                 <td> {{ $ten->user->mobile }} </td>   
                                 <td> {{ $ten->role }} </td>                          
-                               <td>  @if($ten->status == 'Active')
-                    <button type="button" class="btn btn-primary statusid" data-bs-toggle="modal"  data-bs-target=".statusModal"  data-id="{{ $ten->id }}" title="Status"><i class="fa fa-eye action_icon"></i></button>
+                               <td>  @if($ten->user->status == 'Active')
+                    <button type="button" class="btn btn-primary statusid" data-bs-toggle="modal"  data-bs-target=".statusModal"  data-id="{{ $ten->user->id }}" title="Status"><i class="fa fa-eye action_icon"></i></button>
                 @else 
                 <button type="button" class="btn-info btn statusid" data-bs-toggle="modal"  data-bs-target=".statusModal" data-id="{{ $ten->user->id }}" title="Status"><i class="fa fa-eye-slash action_icon"></i></button>
                 @endif

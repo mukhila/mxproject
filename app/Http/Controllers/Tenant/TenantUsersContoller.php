@@ -17,9 +17,9 @@ class TenantUsersContoller extends Controller
 {
     public function list()
     {
-        $user = User::where('role', '=', 'Tenant')->orderBy('id', 'desc')->get();
+        $user = User::where('role', '=', 'Tenant')->where('delete_status', '=', '0')->orderBy('id', 'desc')->get();
         $tenant = Tenant::where('userid',Auth::user()->id)->first();
-        $tenantusers = TenantUsers::where('tenant_id',$tenant->id)->get();
+        $tenantusers = TenantUsers::where('tenant_id',$tenant->id)->where('delete_status', '=', '0')->get();
         return view('tenantuser.index')->with([
             'tenantusers' => $tenantusers,
             'user' => $user,
@@ -126,19 +126,27 @@ class TenantUsersContoller extends Controller
     }
 
     public function updatestatus($id) {
+
+  
+        
         $tenantuser = User::where('id', '=', $id)->select('status')->first();
         $status = $tenantuser->status;
         $tenantuserstatus = 'Active';
         if($status == 'Active') {
+            
             $tenantuserstatus = 'Inactive';
         }
+
         User::where('id', '=', $id)->update(['status' => $tenantuserstatus]);
+   
+
         Toastr::success('User status successfully Updated');
         return redirect('/tenant/tenantuser')->with('success', 'User status successfully updated');
     }
     public function destroy($id)
     {
         User::where('id', '=', $id)->update(['delete_status' => 1]);
+        TenantUsers::where('user_id', '=', $id)->update(['delete_status' => 1]);
         Toastr::success('User successfully deleted');
         return redirect('/tenant/tenantuser')->with('success', 'User details successfully deleted');
     }
