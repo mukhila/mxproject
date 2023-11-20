@@ -85,7 +85,7 @@
                     class="menu-item {{ (request()->segment(2) == 'tenant') ? 'active' : '' }}">
                     <a href="{{ route('admin.tenant.list') }}" class="menu-link">
                         <i class="menu-icon tf-icons mdi mdi-account-tie"></i>
-                        <div data-i18n="Tenant">Tenant</div>
+                        <div data-i18n="Company">Company</div>
                     </a>
                 </li>
                

@@ -79,15 +79,7 @@
                     </a>
                 </li>   
 				  <!-- My Profile -->
-                
-                        <!-- Tenant -->
-                <!--li class="menu-item {{ (request()->segment(2) == 'tenant') ? 'active' : '' }}">
-                    <a href="{{ route('tenant.list') }}" class="menu-link">
-                        <i class="menu-icon tf-icons mdi mdi-domain"></i>
-                        <div data-i18n="Tenant">Tenant</div>
-                    </a>
-                </li-->   
-            	
+           
                 
                       <!-- Branch -->
                 <li class="menu-item {{ (request()->segment(2) == 'branch') ? 'active' : '' }}">
