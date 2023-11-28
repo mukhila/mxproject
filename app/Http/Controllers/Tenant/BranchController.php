@@ -15,7 +15,8 @@ class BranchController extends Controller
 {
     public function list()
     {
-        $branch = Branch::where('delete_status',0)->paginate(10);
+        $tenant_id =  Session::get('tenant_id');
+        $branch = Branch::where('delete_status',0)->where('tenant_id',$tenant_id)->paginate(10);
         return view('branch.index')->with([
             'branch' => $branch
         ]);

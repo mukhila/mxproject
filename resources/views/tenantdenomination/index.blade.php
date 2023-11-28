@@ -53,10 +53,10 @@
                           <tr>
                                 <td></td>
                                 <td>{{  $i++ }}</td>                                
-                                <td> {{ $ten->denomination->denomination_code  }}</td>
-                                <td> {{ $ten->denomination->currency_id  }}</td>
-                                <td> {{ $ten->denomination->value  }}</td>
-                                <td> {{ $ten->denomination->currency_type  }}</td>
+                                <td> {{ $ten->denominations->denomination_code  }}</td>
+                                <td> {{ $ten->currencyname->currency_name ?? '' }}</td>
+                                <td> {{ $ten->denominations->value  }}</td>
+                                <td> {{ $ten->denominations->currency_type  }}</td>
                                <td>  
                 <button type="button" class="btn-danger btn deleteid" data-bs-toggle="modal"  data-bs-target="#delModal" data-id="{{ $ten->id }}" title="Delete"  >
                     <i class="fa fa-trash action_icon"></i>
@@ -84,5 +84,5 @@
 <!--/ Content -->
 
 @endsection
-<input type="hidden" name="redirecturl" id="redirecturl" value="{{ url('/tenant/tenantcurrency/') }}">  
+<input type="hidden" name="redirecturl" id="redirecturl" value="{{ url('/tenant/tenantdenomination/') }}">  
 @extends('layouts.popup')

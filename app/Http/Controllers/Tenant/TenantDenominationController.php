@@ -52,4 +52,11 @@ class TenantDenominationController extends Controller
         Toastr::success('Denomination successfully deleted');
         return redirect('/tenant/tenantdenomination')->with('success', 'Denomination successfully deleted');
     }
+    public function ajaxRequest(Request $request)
+    {
+       $denomination = Denomination::where('id',$request->denomination_id)->first();
+       $denomination->currency_name = Currency::where('id',$denomination->currency_id)->pluck('currency_name');
+
+       return response()->json(array('denomination'=> $denomination), 200);
+    }
 }

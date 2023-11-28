@@ -11,13 +11,12 @@ class tenant_denomination extends Model
     use HasFactory;
 
     
-    public function denomination():Hasone
+    public function denominations():Hasone
     {
          return $this->hasOne(Denomination::class,'id','denomination_id');
     }
-
-    public function currency():Hasone
+    public function currencyname()
     {
-         return $this->hasOne(Currency::class,'id','currency_id');
+        return $this->hasOneThrough(Currency::class, Denomination::class,'currency_id','id','id','currency_id',);
     }
 }

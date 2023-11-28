@@ -76,6 +76,9 @@ Route::group([ 'prefix' => 'tenant', 'middleware'=> ['auth' => 'Tenant']], funct
      Route::get('/tenantdenomination', 'App\Http\Controllers\Tenant\TenantDenominationController@list')->name('tenantdenomination.list');
     Route::get('/tenantdenomination/add', 'App\Http\Controllers\Tenant\TenantDenominationController@add')->name('tenantdenomination.add');
      Route::post('/tenantdenomination/store', 'App\Http\Controllers\Tenant\TenantDenominationController@store')->name('tenantdenomination.store');
+     Route::post('/gettingdenomination/ajaxRequest', 'App\Http\Controllers\Tenant\TenantDenominationController@ajaxRequest')->name('tenantdenomination.ajaxRequest');
+
+
     Route::get('/tenantdenomination/{id}/destroy', 'App\Http\Controllers\Tenant\TenantDenominationController@destroy');
 
 

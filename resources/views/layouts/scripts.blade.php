@@ -56,3 +56,39 @@
       });
     });
 </script>
+
+<script type="text/javascript">
+  
+        
+         
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+   
+
+
+
+   $("#denomination_id").change(function(e) {
+  
+        e.preventDefault();   
+        var denomination_id = $(this).val();
+      
+        $.ajax({
+           type:'POST',
+           url:"{{ route('tenantdenomination.ajaxRequest') }}",
+           dataType: 'json',
+           data:{denomination_id:denomination_id},
+           success:function(response){               
+                 $("#currencyvalue").val(response.denomination.value); 
+                 $("#currencytype").val(response.denomination.currency_type); 
+                 $("#currency").val(response.denomination.currency_name);
+               }
+          
+        });
+
+           
+     });
+   
+    </script>

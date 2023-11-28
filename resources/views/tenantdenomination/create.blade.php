@@ -61,6 +61,46 @@
                        <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
 
+
+
+                        <!-- Currency -->
+                      <div class="form-floating form-floating-outline mb-4">
+                        <input
+                          type="text"
+                          id="currency"
+                          class="form-control"
+                          aria-label="currency"                                                
+                          value = "" disabled
+                           />
+                        <label for="value">Currency Name</label>
+                      </div>
+
+
+
+                       <!-- Currency value-->
+                      <div class="form-floating form-floating-outline mb-4">
+                        <input
+                          type="text"
+                          id="currencyvalue"
+                          class="form-control"
+                          aria-label="value"                                                
+                          value = "" disabled
+                           />
+                        <label for="value">Currency Value</label>
+                      </div>
+
+
+                          <!-- Currency Type-->
+                      <div class="form-floating form-floating-outline mb-4">
+                        <input
+                          type="text"
+                          id="currencytype"
+                          class="form-control"                                                                 
+                          value = "" disabled
+                           />
+                        <label for="value">Currency Type</label>
+                      </div>
+
                       <!-- Submit and reset -->
                       <div class="mb-3">
                         <button type="submit" class="btn btn-success me-sm-3 me-1 data-submit">Add</button>
@@ -85,4 +125,3 @@
 <!--/ Content -->
 
 @endsection
-
