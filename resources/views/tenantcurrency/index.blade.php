@@ -5,7 +5,7 @@
 
 
 <div class="container-xxl flex-grow-1 container-p-y">
-<h4 class="py-3 mb-4"><span class="text-muted fw-light">User /</span> List</h4>
+<h4 class="py-3 mb-4"><span class="text-muted fw-light">Currency /</span> List</h4>
 
         <!-- Help Topics: Start -->
         <section class="section-py">
