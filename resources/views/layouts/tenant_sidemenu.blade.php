@@ -105,6 +105,18 @@
                         <i class="menu-icon tf-icons mdi mdi-cog"></i>
                         <div data-i18n="Settings">Settings</div>
                     </a>
+                     <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{ route('tenantcurrency.list') }}" class="menu-link">
+                        <div data-i18n="Currency">Currency</div>
+                      </a>
+                    </li>                   
+                    <li class="menu-item">
+                      <a href="{{ route('tenantdenomination.list') }}" class="menu-link" >
+                        <div data-i18n="Denomination">Denomination</div>
+                      </a>
+                    </li>
+                  </ul>
                     
                 </li>
 

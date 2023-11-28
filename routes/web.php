@@ -67,6 +67,18 @@ Route::group([ 'prefix' => 'tenant', 'middleware'=> ['auth' => 'Tenant']], funct
     Route::get('/tenantuser/{id}/destroy', 'App\Http\Controllers\Tenant\TenantUsersContoller@destroy');
 
 
+    Route::get('/tenantcurrency', 'App\Http\Controllers\Tenant\TenantCurrenciesController@list')->name('tenantcurrency.list');
+    Route::get('/tenantcurrency/add', 'App\Http\Controllers\Tenant\TenantCurrenciesController@add')->name('tenantcurrency.add');
+    Route::post('/tenantcurrency/store', 'App\Http\Controllers\Tenant\TenantCurrenciesController@store')->name('tenantcurrency.store');
+    Route::get('/tenantcurrency/{id}/destroy', 'App\Http\Controllers\Tenant\TenantCurrenciesController@destroy');
+
+
+     Route::get('/tenantdenomination', 'App\Http\Controllers\Tenant\TenantDenominationController@list')->name('tenantdenomination.list');
+    Route::get('/tenantdenomination/add', 'App\Http\Controllers\Tenant\TenantDenominationController@add')->name('tenantdenomination.add');
+     Route::post('/tenantdenomination/store', 'App\Http\Controllers\Tenant\TenantDenominationController@store')->name('tenantdenomination.store');
+    Route::get('/tenantdenomination/{id}/destroy', 'App\Http\Controllers\Tenant\TenantDenominationController@destroy');
+
+
 });
 
 Route::group([ 'prefix' => 'currency' ], function () {
