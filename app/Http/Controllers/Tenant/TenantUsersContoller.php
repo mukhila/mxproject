@@ -17,9 +17,9 @@ class TenantUsersContoller extends Controller
 {
     public function list()
     {
-        $user = User::where('role', '=', 'Tenant')->where('delete_status', '=', '0')->orderBy('id', 'desc')->get();
+        $user = User::where('role', 'Tenant')->where('delete_status','0')->orderBy('id', 'desc')->get();
         $tenant = Tenant::where('userid',Auth::user()->id)->first();
-        $tenantusers = TenantUsers::where('tenant_id',$tenant->id)->where('delete_status', '=', '0')->get();
+        $tenantusers = TenantUsers::where('tenant_id',$tenant->id)->where('delete_status', '0')->get();
         return view('tenantuser.index')->with([
             'tenantusers' => $tenantusers,
             'user' => $user,
