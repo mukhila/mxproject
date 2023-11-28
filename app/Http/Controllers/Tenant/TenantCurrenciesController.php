@@ -48,7 +48,7 @@ class TenantCurrenciesController extends Controller
     {        
         tenant_currency::where('id', '=', $id)->delete();
         Toastr::success('Currency successfully deleted');
-        return redirect('/tenant/tenantuser')->with('success', 'Currency successfully deleted');
+        return redirect('/tenant/tenantcurrency')->with('success', 'Currency successfully deleted');
     }
 
 

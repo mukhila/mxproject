@@ -50,11 +50,11 @@
                           <tr>
                                 <td></td>
                                 <td>{{  $i++ }}</td>                                
-                                <td> {{ $ten->tenantcurrency->currencyname  }}</td>
+                                <td> {{ $ten->currency->currency_name  }}</td>
                                                     
                                <td>  
            
-                <button type="button" class="btn-danger btn deleteid" data-bs-toggle="modal"  data-bs-target="#delModal" data-id="{{ $ten->user->id }}" title="Delete"  >
+                <button type="button" class="btn-danger btn deleteid" data-bs-toggle="modal"  data-bs-target="#delModal" data-id="{{ $ten->id }}" title="Delete"  >
                     <i class="fa fa-trash action_icon"></i>
                 </button>
                     </td>            

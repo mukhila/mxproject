@@ -44,17 +44,17 @@
                       <!-- Currency Name-->
                       {{ csrf_field() }}
                       <div class="form-floating form-floating-outline mb-4">
-                        <select                         
-                          class="form-control"
-                          id="curreny_id"                        
-                          name="curreny_id" 
-                          >
-                          <option value="">Select Currency</option>
-                          @foreach($currency as $cur)
-                          <option value="{{ $cur->id }}">{{ $cur->currency_name }}</option>
-                          @endforeach
-                      </select>
-                        <label for="curreny_id">Currency Name</label>
+                         <select
+                              id="currency_id"
+                              name="currency_id"
+                              class="form-select"
+                              data-allow-clear="true" required>
+                              <option value="">Select</option>    
+                              @foreach($currency as $cur)
+                               <option value="{{ $cur->id }}">{{ $cur->currency_name }}</option> 
+                              @endforeach                         
+                            </select>
+                            <label for="currency_id">Currency</label>
                       </div>
 
                       @error('curreny_id')

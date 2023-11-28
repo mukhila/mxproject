@@ -132,6 +132,11 @@
                             </select>
                             <label for="currency_id">Currency</label>
                        </div>
+
+                    @error('currency_id')
+                       <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
+
                    
                       <!-- Submit and reset -->
                       <div class="mb-3">
