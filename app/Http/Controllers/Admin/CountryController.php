@@ -65,16 +65,16 @@ class CountryController extends Controller
     public function update(Request $request)
     {
 
+          $id = $request->id;
         
         $request->validate([
-            'country_name' => 'required|unique:country|max:255',
+            'country_name' => 'required|unique:country,country_name,'.$id.'|max:255',
             'country_code' => 'required',
             'calling_code' => 'required',
             'currency_id' => 'required',
         ]);
-
-        
-        $id = $request->id;
+    
+      
         $country = Country::find($id);
 
         $filename = $request->oldimage;
