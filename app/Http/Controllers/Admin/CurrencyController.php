@@ -47,14 +47,15 @@ class CurrencyController extends Controller
      public function update(Request $request)
     {
 
+         $id = $request->id;
         $request->validate([
-            'currency_name' => 'required|unique:currency|max:255',
+            'currency_name' => 'required|unique:currency,currency_name,'.$id.'|max:255',
             'currency_code' => 'required',
             'currency_symbol' => 'required',
         ]);
 
         
-        $id = $request->id;
+       
         $currency = Currency::find($id);
         $currency->currency_name = $request->currency_name; 
         $currency->currency_code = $request->currency_code; 
