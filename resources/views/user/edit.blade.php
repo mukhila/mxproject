@@ -27,7 +27,7 @@
                     <form method="POST" action="{{ route('user.update') }}">
                         @csrf
                         <input type="hidden" name="id" value="{{ $user->id }}">
-						
+						 <input type="hidden" name="_method" value="PUT">
 						
 						
 						<div class="form-floating form-floating-outline mb-4">
