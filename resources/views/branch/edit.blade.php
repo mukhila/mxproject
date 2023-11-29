@@ -160,7 +160,7 @@
                      
                       <!-- Submit and reset -->
                       <div class="mb-3">
-                        <button type="submit" class="btn btn-success me-sm-3 me-1 data-submit">Add</button>
+                        <button type="submit" class="btn btn-success me-sm-3 me-1 data-submit">Update</button>
                         <button type="reset" class="btn btn-outline-success" data-bs-dismiss="offcanvas">Discard</button>
                       </div>
                     </form>

@@ -71,7 +71,7 @@ class BranchController extends Controller
             'address' => 'required', 
             'branchname' => 'required',    
             'contactno' => 'required',
-            'emailid' => 'required',
+            'emailid' => 'required|email',
             'mobileno' => 'required',                        
         ]);
         
