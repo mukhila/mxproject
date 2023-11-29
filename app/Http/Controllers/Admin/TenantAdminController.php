@@ -32,7 +32,7 @@ class TenantAdminController extends Controller
     public function store(Request $request)
     {
        $request->validate([            
-            'company_name' => 'required', 
+            'company_name' => 'required|unique:tenant', 
             'name' => 'required',
             'mobile' => 'required|integer',
             'email' => 'required|email|unique:users',
