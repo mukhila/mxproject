@@ -80,7 +80,7 @@
                  $("#currencytype").val(response.denomination.currency_type); 
                  $("#currency").val(response.denomination.currency_name);
                  $("#currency_id").val(response.denomination.currency_id);
-                 alert(response.denomination.currency_id);
+                 /*alert(response.denomination.currency_id);*/
                }
           
         });
