@@ -54,7 +54,7 @@
                                 <td></td>
                                 <td>{{  $i++ }}</td>                                
                                 <td> {{ $ten->denominations->denomination_code  }}</td>
-                                <td> {{ $ten->currencyname->currency_name ?? '' }}</td>
+                                <td> {{ $ten->currency->currency_name ?? '' }}</td>
                                 <td> {{ $ten->denominations->value  }}</td>
                                 <td> {{ $ten->denominations->currency_type  }}</td>
                                <td>  

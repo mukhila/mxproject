@@ -74,7 +74,7 @@
                            />
                         <label for="value">Currency Name</label>
                       </div>
-
+                      <input type = "hidden" name="currency_id" value ="" id ="currency_id" />
 
 
                        <!-- Currency value-->

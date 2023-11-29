@@ -15,8 +15,13 @@ class tenant_denomination extends Model
     {
          return $this->hasOne(Denomination::class,'id','denomination_id');
     }
-    public function currencyname()
+    /*public function currencyname()
     {
         return $this->hasOneThrough(Currency::class, Denomination::class,'currency_id','id','id','currency_id',);
+    }*/
+
+    public function currency():Hasone
+    {
+         return $this->hasOne(Currency::class,'id','currency_id');
     }
 }

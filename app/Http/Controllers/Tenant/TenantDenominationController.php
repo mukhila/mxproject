@@ -40,6 +40,7 @@ class TenantDenominationController extends Controller
          $tenantdenomination = new tenant_denomination();
          $tenantdenomination->tenant_id = $tenant_id;
          $tenantdenomination->denomination_id = $request->denomination_id;
+         $tenantdenomination->currency_id = $request->currency_id;
          $tenantdenomination->save();
 
               
