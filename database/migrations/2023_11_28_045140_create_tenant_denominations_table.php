@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('tenant_denominations', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id');
+            $table->integer('currency_id');
             $table->integer('denomination_id');
             $table->timestamps();
         });
