@@ -34,7 +34,7 @@ class BranchController extends Controller
             'address' => 'required', 
             'branchname' => 'required',    
             'contactno' => 'required',
-            'emailid' => 'required',
+            'emailid' => 'required|email',
             'mobileno' => 'required',                           
         ]);
         $tenant = Tenant::where('userid',Auth::user()->id)->first();
