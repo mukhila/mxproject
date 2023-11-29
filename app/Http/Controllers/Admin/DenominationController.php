@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Denomination;
 use App\Models\Currency;
-use Brian2694\Toastr\Facades\Toastr;
 
 class DenominationController extends Controller
 {

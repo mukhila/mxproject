@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Brian2694\Toastr\Facades\Toastr;
-
 use App\Models\User;
 use Hash;
 
@@ -47,8 +45,8 @@ class UserController extends Controller
         $user->status = 'Active';
         $user->save();
 
-        Toastr::success('User Created');
-        return redirect(route('user.list'));
+     
+        return redirect('/user/list')->with('success', 'User successfully created');
     }
 
     public function edit($id)
@@ -89,8 +87,8 @@ class UserController extends Controller
             ]);
         }
 
-        Toastr::success('User Updated');
-        return redirect(route('user.list'));
+      
+        return redirect('/user/list')->with('success', 'User successfully Updated');
     }
 
     public function updatestatus($id) {
@@ -101,13 +99,13 @@ class UserController extends Controller
             $userstatus = 'Inactive';
         }
         User::where('id', '=', $id)->update(['status' => $userstatus]);
-        Toastr::success('User status successfully updated');
+      
         return redirect('/user/list')->with('success', 'User status successfully updated');
     }
     public function destroy($id)
     {
         User::where('id', '=', $id)->update(['delete_status' => 1]);
-        Toastr::success('User status successfully deleted');
+   
         return redirect('/user/list')->with('success', 'User details successfully deleted');
     }
 }

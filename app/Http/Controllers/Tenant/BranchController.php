@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Tenant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Brian2694\Toastr\Facades\Toastr;
+
 use App\Models\Tenant;
 use App\Models\Branch;
 use Auth;
@@ -47,8 +47,9 @@ class BranchController extends Controller
         $branch->emailid = $request->emailid;
         $branch->mobileno = $request->mobileno;
         $branch->status = 'Active';
-        $branch->save();   
-        Toastr::success('Branch successfully created');    
+        $branch->save();
+           
+       
         return redirect('/tenant/branch')->with('success', 'Branch successfully created');   
     }
 
@@ -85,7 +86,7 @@ class BranchController extends Controller
         $branch->mobileno = $request->mobileno;     
         $branch->status = 'Active';
         $branch->save();       
-        Toastr::success('Branch successfully updated');
+       
         return redirect('/tenant/branch')->with('success', 'Branch successfully Updated');
 
     }
@@ -98,13 +99,13 @@ class BranchController extends Controller
             $branchstatus = 'Inactive';
         }
         Branch::where('id', '=', $id)->update(['status' => $branchstatus]);
-        Toastr::success('Branch status successfully updated');
+      
         return redirect('/tenant/branch')->with('success', 'Branch status successfully updated');
     }
     public function destroy($id)
     {
         Branch::where('id', '=', $id)->update(['delete_status' => 1]);
-        Toastr::success('Branch details successfully deleted');
+       
         return redirect('/tenant/branch')->with('success', 'Branch details successfully deleted');
     }
 

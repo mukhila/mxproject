@@ -24,8 +24,6 @@
         <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/fontawesome.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/flag-icons.css') }}" />
 
-
-        <link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}">
         
         <!-- Menu waves for no-customizer fix -->
         <link rel="stylesheet"

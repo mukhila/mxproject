@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Currency;
-use Brian2694\Toastr\Facades\Toastr;
 
 class CurrencyController extends Controller
 {

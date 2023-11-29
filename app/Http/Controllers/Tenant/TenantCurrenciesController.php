@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Tenant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Currency;
-use Brian2694\Toastr\Facades\Toastr;
 use App\Models\tenant_currency;
 use Session;
 use Auth;
@@ -40,14 +39,14 @@ class TenantCurrenciesController extends Controller
          $tenantcurrency->currency_id = $request->currency_id;
          $tenantcurrency->save();
 
-        Toastr::success('New Currency for this tenant successfully created'); 
+        
         return redirect('/tenant/tenantcurrency')->with('success', 'New Currency for this tenant successfully created');  
     }
 
     public function destroy($id)
     {        
         tenant_currency::where('id', '=', $id)->delete();
-        Toastr::success('Currency successfully deleted');
+        
         return redirect('/tenant/tenantcurrency')->with('success', 'Currency successfully deleted');
     }
 

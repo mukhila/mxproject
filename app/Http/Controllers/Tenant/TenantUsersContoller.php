@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Tenant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Brian2694\Toastr\Facades\Toastr;
+
 use App\Models\Tenant;
 use App\Models\User;
 use App\Models\Branch;
@@ -67,7 +67,7 @@ class TenantUsersContoller extends Controller
         $tenantuser->user_id = $userid;
         $tenantuser->status = 'Active';
         $tenantuser->save();   
-        Toastr::success('New User successfully created'); 
+        
         return redirect('/tenant/tenantuser')->with('success', 'New User successfully created');  
     }
 
@@ -120,7 +120,7 @@ class TenantUsersContoller extends Controller
 
         ]);   
 
-        Toastr::success('User successfully Updated');       
+              
         return redirect('/tenant/tenantuser')->with('success', 'User details successfully Updated');
 
     }
@@ -139,15 +139,13 @@ class TenantUsersContoller extends Controller
 
         User::where('id', '=', $id)->update(['status' => $tenantuserstatus]);
    
-
-        Toastr::success('User status successfully Updated');
         return redirect('/tenant/tenantuser')->with('success', 'User status successfully updated');
     }
     public function destroy($id)
     {
         User::where('id', '=', $id)->update(['delete_status' => 1]);
         TenantUsers::where('user_id', '=', $id)->update(['delete_status' => 1]);
-        Toastr::success('User successfully deleted');
+     
         return redirect('/tenant/tenantuser')->with('success', 'User details successfully deleted');
     }
 }

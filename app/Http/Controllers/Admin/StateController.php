@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Models\State;
 use App\Models\Country;
-use Brian2694\Toastr\Facades\Toastr;
-
 
 class StateController extends Controller
 {

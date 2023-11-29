@@ -2,7 +2,6 @@
 namespace App\Http\Controllers\Tenant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Brian2694\Toastr\Facades\Toastr;
 use App\Models\User;
 use App\Models\Tenant;
 use Session;
@@ -64,7 +63,7 @@ class TenantController extends Controller
             ]);
         }
 
-        Toastr::success('User Updated');
-        return redirect(route('tenant.profile'));
+     
+        return redirect(route('tenant.profile'))->with('success', 'profile successfully deleted');
     }
 }

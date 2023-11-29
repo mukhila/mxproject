@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Brian2694\Toastr\Facades\Toastr;
 use App\Models\User;
 use App\Models\Tenant;
 use Session;
@@ -62,8 +61,8 @@ class TenantAdminController extends Controller
         $tenant->save();
 
 
-        Toastr::success('Tenant successfully created');   
-        return redirect('admin/tenant/list')->with('success', 'Tenant successfully created');   
+         
+        return redirect('admin/tenant/list')->with('success', 'Company successfully created');   
     }
 
     public function edit($id)
@@ -110,8 +109,8 @@ class TenantAdminController extends Controller
         $tenant = Tenant::where('userid', $request->id)->update([
             "company_name" => $request->company_name,
         ]);       
-        Toastr::success('Tenant successfully Updated');         
-        return redirect('admin/tenant/list')->with('success', 'Tenant successfully Updated');
+        
+        return redirect('admin/tenant/list')->with('success', 'Company successfully Updated');
 
     }
 
@@ -124,14 +123,14 @@ class TenantAdminController extends Controller
             $tenantstatus = 'Inactive';
         }
         User::where('id', '=', $id)->update(['status' => $tenantstatus]);
-        Toastr::success('Tenant status successfully Updated');    
-        return redirect('admin/tenant/list')->with('success', 'Tenant status successfully updated');
+          
+        return redirect('admin/tenant/list')->with('success', 'Company status successfully updated');
     }
     public function destroy($id)
     {
         User::where('id', '=', $id)->update(['delete_status' => 1]);
-        Toastr::success('Tenant successfully deleted'); 
-        return redirect('admin/tenant/list')->with('success', 'Tenant details successfully deleted');
+        
+        return redirect('admin/tenant/list')->with('success', 'Company details successfully deleted');
     }
 
 }

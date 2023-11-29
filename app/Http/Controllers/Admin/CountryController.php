@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Currency;
-use Brian2694\Toastr\Facades\Toastr;
+//use Brian2694\Toastr\Facades\Toastr;
 use App\Segment;
 
 class CountryController extends Controller
@@ -106,6 +106,8 @@ class CountryController extends Controller
     public function destroy($id)
     {
         Country::where('id', '=', $id)->update(['delete_status' => 1]);
+
+        
         return redirect('/country')->with('success', 'Country details successfully deleted');
     }
 }

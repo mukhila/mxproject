@@ -32,12 +32,7 @@
 <script src="{{ asset('assets/js/form-layouts.js') }}"></script>
 <script src="{{ asset('assets/js/app-chat.js') }}"></script>
 
-<!-- Toaster -->
-<script src="{{ asset('assets/js/toastr.min.js') }}"></script>
 
-{!! Toastr::message() !!}
-
-<!-- Toaster -->
 
 <!-- Select -->
 <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
