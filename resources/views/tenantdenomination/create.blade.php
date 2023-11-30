@@ -28,7 +28,7 @@
                                     <h5 class="me-2">Add Denomination</h5>
 
                                       <div class="card-header-elements ms-auto">
-                                        <a href = "{{ route('tenantcurrency.list') }}" class="btn btn-primary waves-effect waves-light">
+                                        <a href = "{{ route('tenantdenomination.list') }}" class="btn btn-primary waves-effect waves-light">
                                           <span class="tf-icon mdi mdi-eye me-1"></span>Denomination List
                                         </a>
                                       </div>

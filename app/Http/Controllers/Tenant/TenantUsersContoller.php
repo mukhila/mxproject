@@ -17,18 +17,20 @@ class TenantUsersContoller extends Controller
 {
     public function list()
     {
-        $user = User::where('role', 'Tenant')->where('delete_status','0')->orderBy('id', 'desc')->get();
-        $tenant = Tenant::where('userid',Auth::user()->id)->first();
-        $tenantusers = TenantUsers::where('tenant_id',$tenant->id)->where('delete_status', '0')->get();
+        $tenant_id =  Session::get('tenant_id');
+        //$user = User::where('role', 'Tenant')->where('delete_status','0')->orderBy('id', 'desc')->get();
+       
+        $tenantusers = TenantUsers::where('tenant_id',$tenant_id)->where('delete_status', '0')->get();
         return view('tenantuser.index')->with([
             'tenantusers' => $tenantusers,
-            'user' => $user,
+            //'user' => $user,
         ]);
     }
     public function add()
     {
+        $tenant_id =  Session::get('tenant_id');
         $tenant = Tenant::where('delete_status',0)->where('userid',Auth::user()->id)->get();
-        $branch = Branch::where('delete_status',0)->get();
+        $branch = Branch::where('delete_status',0)->where('tenant_id',$tenant_id)->get();
         return view('tenantuser.create')->with([
             'tenant' => $tenant,
             'branch' => $branch
