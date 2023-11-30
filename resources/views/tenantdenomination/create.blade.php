@@ -56,7 +56,7 @@
                          <select
                               id="currency_id"
                               name="currency_id"
-                              class="select2 form-select form-select-lg" data-allow-clear="true">
+                              class="select2 form-select" data-allow-clear="true">
                               required>
                               <option value="">Select Currency</option>    
                               @foreach($country as $cur)
@@ -77,7 +77,7 @@
                          <select
                               id="denomination_id"
                               name="denomination_id"
-                              class="select2 form-select form-select-lg"
+                              class="select2 form-select"
                               data-allow-clear="true" required>
                               <option value="">Select</option> 
                             </select>
