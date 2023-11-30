@@ -30,7 +30,7 @@ class TenantCurrenciesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'currency_id' => 'required',                                   
+            'currency_id' => 'required|unique:tenant_currency',                                   
         ]);
 
          $tenant_id =  Session::get('tenant_id');

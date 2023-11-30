@@ -33,7 +33,7 @@ class TenantDenominationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'denomination_id' => 'required',                                   
+            'denomination_id' => 'required|unique:tenant_denomination',                                   
         ]);
 
          $tenant_id =  Session::get('tenant_id');
