@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Tenant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Currency;
+use App\Models\Country;
 use App\Models\Denomination;
 
 use App\Models\tenant_denomination;
@@ -26,8 +27,10 @@ class TenantDenominationController extends Controller
     public function add()
     {
         $denomination = Denomination::where('delete_status','0')->where('status','Active')->get();
+        $country = Country::where('delete_status','0')->where('status','Active')->get();
         return view('tenantdenomination.create')->with([
-            'denomination' => $denomination,          
+            'denomination' => $denomination,   
+            'country' => $country        
         ]);
     }
     public function store(Request $request)
@@ -59,5 +62,11 @@ class TenantDenominationController extends Controller
        $denomination->currency_name = Currency::where('id',$denomination->currency_id)->pluck('currency_name');
 
        return response()->json(array('denomination'=> $denomination), 200);
+    }
+
+    public function ajaxRequestForDenomination(Request $request)
+    {
+        $denomination = Denomination::where('currency_id',$request->currency_id)->get();
+        return response()->json(array('denomination'=> $denomination), 200);
     }
 }

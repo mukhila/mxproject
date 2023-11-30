@@ -1,6 +1,13 @@
 @extends('layouts.app-tenant')
 @section('content')
 
+<style>
+  .select2{
+  text-align: left;
+  }
+</style>
+
+
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">Denomination /</span> Add</h4>
@@ -30,7 +37,7 @@
 
 
                                 
-                                <div class="card-body text-center">
+                                <div class="card-body">
 
   <div class="row">
                     <div class="row gy-4 gy-md-0">
@@ -43,16 +50,36 @@
                     <form class="pt-0" method = "post" action = "{{ route('tenantdenomination.store') }}">
                       <!-- Currency Name-->
                       {{ csrf_field() }}
+
+
+                      <div class="form-floating form-floating-outline mb-4">
+                         <select
+                              id="currency_id"
+                              name="currency_id"
+                              class="select2 form-select form-select-lg" data-allow-clear="true">
+                              required>
+                              <option value="">Select Currency</option>    
+                              @foreach($country as $cur)
+                               <option value="{{ $cur->currency_id }}">{{ $cur->country_name }} - {{ $cur->currency->currency_name }}</option> 
+                              @endforeach                         
+                            </select>
+                            <label for="currency_id">Currency</label>
+                      </div>
+
+                      @error('currency_id')
+                       <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
+
+
+
+
                       <div class="form-floating form-floating-outline mb-4">
                          <select
                               id="denomination_id"
                               name="denomination_id"
-                              class="form-select"
+                              class="select2 form-select form-select-lg"
                               data-allow-clear="true" required>
-                              <option value="">Select</option>    
-                              @foreach($denomination as $cur)
-                               <option value="{{ $cur->id }}">{{ $cur->denomination_code }}</option> 
-                              @endforeach                         
+                              <option value="">Select</option> 
                             </select>
                             <label for="denomination_id">Denomination Code</label>
                       </div>
@@ -60,34 +87,20 @@
                       @error('denomination_id')
                        <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
+                   
+                    
 
-
-
-                        <!-- Currency -->
-                      <div class="form-floating form-floating-outline mb-4">
-                        <input
-                          type="text"
-                          id="currency"
-                          class="form-control"
-                          aria-label="currency"                                                
-                          value = "" disabled
-                           />
-                        <label for="value">Currency Name</label>
-                      </div>
-                      <input type = "hidden" name="currency_id" value ="" id ="currency_id" />
-
-
-                       <!-- Currency value-->
+                         <!-- Currency Value-->
                       <div class="form-floating form-floating-outline mb-4">
                         <input
                           type="text"
                           id="currencyvalue"
-                          class="form-control"
-                          aria-label="value"                                                
+                          class="form-control"                                                                 
                           value = "" disabled
                            />
-                        <label for="value">Currency Value</label>
+                        <label for="currencyvalue">Currency Value</label>
                       </div>
+
 
 
                           <!-- Currency Type-->

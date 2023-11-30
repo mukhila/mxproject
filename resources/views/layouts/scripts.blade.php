@@ -21,7 +21,7 @@
 <script src="{{ asset('assets/vendor/libs/cleavejs/cleave-phone.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/moment/moment.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
-<script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
+
 
 <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/swiper/swiper.js') }}"></script>
@@ -78,14 +78,69 @@
            success:function(response){               
                  $("#currencyvalue").val(response.denomination.value); 
                  $("#currencytype").val(response.denomination.currency_type); 
-                 $("#currency").val(response.denomination.currency_name);
+                 /*$("#currency").val(response.denomination.currency_name);
                  $("#currency_id").val(response.denomination.currency_id);
-                 /*alert(response.denomination.currency_id);*/
+                 alert(response.denomination.currency_id);*/
                }
           
         });
-
            
      });
+
+
+
+   $("#currency_id").change(function(e) {
+  
+        e.preventDefault();   
+        var currency_id = $(this).val();
+      
+        $.ajax({
+           type:'POST',
+           url:"{{ route('tenantdenomination.ajaxRequestForDenomination') }}",
+           dataType: 'json',
+           data:{currency_id:currency_id},
+           success:function(response){               
+              
+              $("#denomination_id").empty(); 
+                
+              var len = 0;
+             if(response['denomination'] != null){
+               len = response['denomination'].length;
+               var option = "<option value = '0'> Select Denomination</option>"; 
+               $("#denomination_id").append(option); 
+             }else
+             {
+                 var option = "<option value = '0'>No Denomination</option>"; 
+                $("#denomination_id").append(option); 
+             }
+            
+             if(len > 0){
+               // Read data and create <option >
+               for(var i=0; i<len; i++){
+                 
+                 var name = response['denomination'][i]['denomination_code'];
+
+                 var id = response['denomination'][i]['id'];
+
+                 var option = "<option value='"+id+"'>"+name+"</option>"; 
+
+                
+                 $("#denomination_id").append(option); 
+               }
+             }
+             else                
+                 {
+                     $("#denomination_id").empty(); 
+                     var option = "<option value = '0'>No Denomination</option>"; 
+                     $("#denomination_id").append(option); 
+                 }
+               
+         }        
+          
+        });
+           
+     });
+
+
    
     </script>

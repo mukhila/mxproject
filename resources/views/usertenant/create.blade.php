@@ -15,7 +15,7 @@
 </style>
 
 <div class="container-xxl flex-grow-1 container-p-y">
-<h4 class="py-3 mb-4"><span class="text-muted fw-light">Company /</span> Add</h4>
+<h4 class="py-3 mb-4"><span class="text-muted fw-light">User /</span> Add</h4>
 
         <!-- Help Topics: Start -->
         <section class="section-py">
@@ -30,11 +30,11 @@
 
 
                                 <div class="card-header header-elements">
-                                    <h5 class="me-2">Add Company</h5>
+                                    <h5 class="me-2">Add User</h5>
 
                                       <div class="card-header-elements ms-auto">
                                         <a href = "{{ route('admin.tenant.list') }}" class="btn btn-primary waves-effect waves-light">
-                                          <span class="tf-icon mdi mdi-eye me-1"></span>Company List
+                                          <span class="tf-icon mdi mdi-eye me-1"></span>User List
                                         </a>
                                       </div>
                                     </div>
