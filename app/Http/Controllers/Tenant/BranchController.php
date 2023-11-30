@@ -32,7 +32,7 @@ class BranchController extends Controller
     {
        $request->validate([                        
             'address' => 'required', 
-            'branchname' => 'required',    
+            'branchname' => 'required|unique:branch|min:2|max:200',    
             'contactno' => 'required',
             'emailid' => 'required|email',
             'mobileno' => 'required',                           
@@ -69,7 +69,7 @@ class BranchController extends Controller
          $request->validate([
             'id' => 'required',         
             'address' => 'required', 
-            'branchname' => 'required',    
+            'branchname' => 'required|unique:branch,branchname,'.$id.'|min:2|max:200',    
             'contactno' => 'required',
             'emailid' => 'required|email',
             'mobileno' => 'required',                        
