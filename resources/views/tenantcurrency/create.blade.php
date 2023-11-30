@@ -30,7 +30,7 @@
 
 
                                 
-                                <div class="card-body text-center">
+                                <div class="card-body">
 
   <div class="row">
                     <div class="row gy-4 gy-md-0">
@@ -47,7 +47,7 @@
                          <select
                               id="currency_id"
                               name="currency_id"
-                              class="form-select"
+                              class="select2 form-select"
                               data-allow-clear="true" required>
                               <option value="">Select</option>    
                               @foreach($currency as $cur)
