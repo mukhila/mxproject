@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('tenant_id');
             $table->integer('currency_id');
             $table->integer('denomination_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
