@@ -17,6 +17,7 @@
         </div>
         @include('layouts.scripts')
         @include('layouts.popupscripts')
+        @include('layouts.onchangescripts')
 
         <script>
   $images = $('#categoryiconimage')

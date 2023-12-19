@@ -40,7 +40,7 @@ class TenantDenominationController extends Controller
             'denomination_id' => 'required|unique:tenant_denominations,tenant_id,'.$tenant_id,                                   
         ]);
 
-         $tenant_id =  Session::get('tenant_id');
+         
          $tenantdenomination = new tenant_denomination();
          $tenantdenomination->tenant_id = $tenant_id;
          $tenantdenomination->denomination_id = $request->denomination_id;

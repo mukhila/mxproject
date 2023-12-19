@@ -21,6 +21,7 @@ class RoleController extends Controller
         elseif(Auth::user() && Auth::user()->role == 'Tenant')
         {
             $tenant = Tenant::where('userid',Auth::user()->id)->first();
+            Session::put('user_id', Auth::user()->id);
             if(isset($tenant))
             {
                 Session::put('tenant_id', $tenant->id);

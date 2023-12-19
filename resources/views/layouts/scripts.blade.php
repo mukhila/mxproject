@@ -85,7 +85,46 @@
           
         });
            
-     });
+    });
+
+
+
+
+   $("#tenantdenomination_id").change(function(e) {
+  
+        e.preventDefault();   
+        var denomination_id = $(this).val();
+      
+        if(denomination_id != null)
+        {
+        $.ajax({
+           type:'POST',
+           url:"{{ route('companyusers.exchange.ajaxRequest') }}",
+           dataType: 'json',
+           data:{denomination_id:denomination_id},
+           success:function(response){               
+                 $("#currencyvalue").val(response.denomination.value);                
+                 $("#currencytype").val(response.denomination.currency_type); 
+                 $("#currencyname").val(response.denomination.currency_name);
+                 $("#currency_id").val(response.denomination.currency_id);
+                  /*$("#countryname").val(response.denomination.countryname); */
+               }
+          
+        });
+        }
+        else
+        {
+             $("#currencyvalue").val();
+             $("#currencytype").val();
+             $("#currencyname").val();
+             $("#currency_id").val();
+
+
+        }
+           
+    });
+
+
 
 
 
@@ -142,5 +181,7 @@
      });
 
 
-   
+ 
+
+
     </script>

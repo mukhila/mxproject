@@ -79,7 +79,14 @@
                     </a>
                 </li>   
 				  <!-- My Profile -->
-           
+                <li
+                    class="menu-item {{ (request()->segment(2) == 'exchange') ? 'active' : '' }}">
+                    <a href="{{ route('companyusers.exchange') }}" class="menu-link">
+                        <i class="menu-icon tf-icons mdi mdi-currency-sign"></i>
+                        <div data-i18n="Exchange Rate">Exchange Rate</div>
+                    </a>
+                </li>   
+                  <!-- My Profile -->
                
                 <!-- Settings -->
                 <li

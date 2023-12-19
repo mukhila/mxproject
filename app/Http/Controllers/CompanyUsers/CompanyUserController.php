@@ -17,8 +17,9 @@ class CompanyUserController extends Controller
     public function dashboard()
     {
         $tenant_id = Session::get('tenant_id');
+		$user_id = Session::get('user_id');
         $tenant = Tenant::where('id',$tenant_id)->first();
-        $tenantuser = TenantUsers::where('user_id',Auth::user()->id)->first();
+        $tenantuser = TenantUsers::where('user_id',$user_id)->first();
         return view('companyusers.dashboard')->with([
            'tenant' => $tenant,
            'tenantuser'=>$tenantuser
@@ -27,10 +28,10 @@ class CompanyUserController extends Controller
     }
     public function profile()
     {
-        $users = User::where('id', '=', Auth::user()->id)->first();
+        $users = User::where('id', '=', $user_id)->first();
         $tenant_id = Session::get('tenant_id');
         $tenant = Tenant::where('id',$tenant_id)->first();
-        $tenantuser = TenantUsers::where('user_id',Auth::user()->id)->first();
+        $tenantuser = TenantUsers::where('user_id',$user_id)->first();
         return view('companyusers.profile')->with([
             'users' => $users,
             'tenant' =>$tenant,
