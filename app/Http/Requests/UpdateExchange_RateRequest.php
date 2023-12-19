@@ -13,7 +13,7 @@ class UpdateExchange_RateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateExchange_RateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+           'market_rate' => 'required',  
+           'buy_rate' => 'required',
+           'sell_rate' => 'required',
         ];
+       
     }
 }

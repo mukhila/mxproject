@@ -28,7 +28,7 @@
                                     <h5 class="me-2">Update Exchange Rate</h5>
 
                                       <div class="card-header-elements ms-auto">
-                                        <a href = "{{ route('tenantdenomination.list') }}" class="btn btn-primary waves-effect waves-light">
+                                        <a href = "{{ route('companyusers.exchange') }}" class="btn btn-primary waves-effect waves-light">
                                           <span class="tf-icon mdi mdi-eye me-1"></span>Exchange Rate List
                                         </a>
                                       </div>
@@ -47,42 +47,23 @@
 
 
 
-                    <form class="pt-0" method = "post" action = "{{ route('companyusers.exchange.store') }}">
+                    <form class="pt-0" method = "post" action = "{{ route('companyusers.exchange.update') }}">
                       <!-- Currency Name-->
                       {{ csrf_field() }}
 
-                      <input type ="hidden" name ="branch_id" value = "{{ $branch_id }}" /> 
-
+                      <input type="hidden" name="id" value="{{ $exchange_Rate->id }}">
+                      <input type="hidden" name="_method" value="PUT">
+                     
+                         <!-- Currency Name-->
                       <div class="form-floating form-floating-outline mb-4">
-
-                         <select
-                              id="tenantdenomination_id"
-                              name="tenantdenomination_id"
-                              class="select2 form-select" data-allow-clear="true">
-                              required>
-                              <option value="">Select Denomination</option>    
-                              @foreach($tenant_denomination as $cur)
-                               <option value="{{ $cur->id }}">{{ $cur->denominations->denomination_code }}</option> 
-                              @endforeach                         
-                            </select>
-                            
-                      </div>
-
-                      @error('tenantdenomination_id')
-                       <div class="alert alert-danger">{{ $message }}</div>
-                      @enderror
-
-
-                         <!-- Country Name-->
-                      <!--div class="form-floating form-floating-outline mb-4">
                         <input
                           type="text"
-                          id="countryname"
+                          id="denomination_code"
                           class="form-control"                                                                 
-                          value = "" disabled
+                          value = "{{ $denomination->denomination_code }}" disabled
                            />
-                        <label for="countryname">Country Name</label>
-                      </div-->
+                        <label for="denomination_code">Denomination Code</label>
+                      </div>
 
 
 
@@ -92,7 +73,7 @@
                           type="text"
                           id="currencyname"
                           class="form-control"                                                                 
-                          value = "" disabled
+                          value = "{{ $denomination->currency_name }}" disabled
                            />
                         <label for="currencyname">Currency Name</label>
                       </div>
@@ -105,7 +86,7 @@
                           type="text"
                           id="currencyvalue"
                           class="form-control"                                                                 
-                          value = "" disabled
+                          value = "{{ $denomination->value }}" disabled
                            />
                         <label for="currencyvalue">Currency Value</label>
                       </div>
@@ -118,7 +99,7 @@
                           type="text"
                           id="currencytype"
                           class="form-control"                                                                 
-                          value = "" disabled
+                          value = "{{ $denomination->currency_type }}" disabled
                            />
                         <label for="value">Currency Type</label>
                       </div>
@@ -130,7 +111,7 @@
                           id="market_rate"
                           class="form-control"
                           name = "market_rate"                                                               
-                          value = "" 
+                          value = "{{ $exchange_Rate->market_rate }}" 
                            />
                         <label for="market_rate">Market Rate</label>
                       </div>
@@ -143,7 +124,7 @@
                           id="buy_rate"
                           class="form-control"
                           name="buy_rate"                                                                 
-                          value = "" 
+                          value = "{{ $exchange_Rate->buy_rate }}" 
                            />
                         <label for="buy_rate">Buy Rate</label>
                       </div>
@@ -155,7 +136,7 @@
                           id="sell_rate"
                           class="form-control"
                           name = "sell_rate"                                                            
-                          value = "" 
+                          value = "{{ $exchange_Rate->sell_rate }}" 
                            />
                         <label for="sell_rate">Sell Rate</label>
                       </div>

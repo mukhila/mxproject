@@ -25,9 +25,11 @@ class ExchangeRateController extends Controller
      */
     public function index()
     {
+        $date = now();
+
          $tenant_id = Session::get('tenant_id');
          $user_id = Session::get('user_id');
-         $exchangerates = Exchange_Rate::where('tenant_id',$tenant_id)->paginate(10);
+         $exchangerates = Exchange_Rate::where('tenant_id',$tenant_id)->where('date',$date->format('Y-m-d'))->paginate(10);
          return view('exchangerates.index')->with([
             'exchangerates' => $exchangerates,          
         ]);
@@ -105,9 +107,18 @@ class ExchangeRateController extends Controller
      * @param  \App\Models\Exchange_Rate  $exchange_Rate
      * @return \Illuminate\Http\Response
      */
-    public function edit(Exchange_Rate $exchange_Rate)
+    public function edit(Exchange_Rate $exchange_Rate, Request $request)
     {
-        //
+
+        $exchange_Rates = Exchange_Rate::where('id',$request->id)->first();
+        $tenant_denominations = tenant_denomination::where('id',$exchange_Rates->tenant_denomination_id)->first();
+        $denomination = Denomination::where('id',$tenant_denominations->denomination_id)->first();
+        $denomination->currency_name = Currency::where('id',$denomination->currency_id)->pluck('currency_name')->first();
+        return view('exchangerates.edit')->with([
+            'exchange_Rate' => $exchange_Rates,
+            'tenant_denominations' => $tenant_denominations,
+            'denomination' => $denomination
+        ]);
     }
 
     /**
@@ -119,7 +130,14 @@ class ExchangeRateController extends Controller
      */
     public function update(UpdateExchange_RateRequest $request, Exchange_Rate $exchange_Rate)
     {
-        //
+         $id = $request->id;
+         $exchangerates = Exchange_Rate::find($id);
+         $exchangerates->market_rate = $request->market_rate;
+         $exchangerates->buy_rate = $request->buy_rate;
+         $exchangerates->sell_rate = $request->sell_rate;
+         $exchangerates->save();
+         return redirect('/companyusers/exchange')->with('success', 'Exchange Rate successfully updated'); 
+
     }
 
     /**

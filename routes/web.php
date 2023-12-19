@@ -151,8 +151,9 @@ Route::group([ 'prefix' => 'denomination' ], function () {
     Route::get('/exchange', 'App\Http\Controllers\CompanyUsers\ExchangeRateController@index')->name('companyusers.exchange');
     Route::get('/exchange/create', 'App\Http\Controllers\CompanyUsers\ExchangeRateController@create')->name('companyusers.exchange.create');
     Route::post('/exchange/store', 'App\Http\Controllers\CompanyUsers\ExchangeRateController@store')->name('companyusers.exchange.store');
-     Route::get('/exchange/{id}/edit', 'App\Http\Controllers\CompanyUsers\ExchangeRateController@edit')->name('companyusers.exchange.edit');
+    Route::get('/exchange/{id}/edit', 'App\Http\Controllers\CompanyUsers\ExchangeRateController@edit')->name('companyusers.exchange.edit');
 
+    Route::put('/exchange/update', 'App\Http\Controllers\CompanyUsers\ExchangeRateController@update')->name('companyusers.exchange.update');
 
 
      Route::post('/exchange/ajaxRequest', 'App\Http\Controllers\CompanyUsers\ExchangeRateController@ajaxRequest')->name('companyusers.exchange.ajaxRequest');
