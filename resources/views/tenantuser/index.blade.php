@@ -40,7 +40,7 @@
                         <tr>
                           <th></th>
                           <th>S.No</th>                        
-                          <th>Branch Name</th> 
+                          <!--th>Branch Name</th--> 
                           <th>Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
@@ -54,7 +54,7 @@
                           <tr>
                                 <td></td>
                                 <td>{{  $i++ }}</td>                                
-                                <td> {{ $ten->branch->branchname  }}</td>
+                                <!--td> {{ $ten->branch->branchname  }}</td-->
                                 <td> {{ $ten->user->name }}</td>
                                 <td> {{ $ten->user->email }} </td>
                                 <td> {{ $ten->user->mobile }} </td>   

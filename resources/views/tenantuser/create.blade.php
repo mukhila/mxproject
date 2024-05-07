@@ -82,9 +82,10 @@
                               class="form-select"
                               data-allow-clear="true" required>
                               <option value="">Select role</option>                                
-                              <option value="Branch Admin">Branch Admin</option>
-                              <option value="Cashier">Cashier</option>
-                                                 
+                              <option value="Manager">Manager</option>
+                              <option value="Cheif Teller">Cheif Teller</option>
+                              <option value="Supervisor">Supervisor</option>
+                              <option value="Teller">Teller</option>                  
                             </select>
                             <label for="role">Select Role</label>
                        </div>

@@ -92,8 +92,13 @@
                               class="form-select"
                               data-allow-clear="true" required>
                               <option value="">Select role</option>                               
-                              <option value="Branch Admin" {{ $tenantuser->role == "Branch Admin" ? 'Selected' :'' }}>Branch Admin</option>
-                              <option value="Cashier" {{ $tenantuser->role == "Cashier" ? 'Selected' :'' }} >Cashier</option>
+                              <!--option value="Branch Admin" {{ $tenantuser->role == "Branch Admin" ? 'Selected' :'' }}>Branch Admin</option>
+                              <option value="Cashier" {{ $tenantuser->role == "Cashier" ? 'Selected' :'' }} >Cashier</-->
+
+                              <option value="Manager" {{ $tenantuser->role == "Manager" ? 'Selected' :'' }}>Manager</option>
+                              <option value="Cheif Teller" {{ $tenantuser->role == "Cheif Teller" ? 'Selected' :'' }}>Cheif Teller</option>
+                              <option value="Supervisor" {{ $tenantuser->role == "Supervisor" ? 'Selected' :'' }}>Supervisor</option>
+                              <option value="Teller" {{ $tenantuser->role == "Teller" ? 'Selected' :'' }}>Teller</option>     
                                                  
                             </select>
                             <label for="role">Select Role</label>
